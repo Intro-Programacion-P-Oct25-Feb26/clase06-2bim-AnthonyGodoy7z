@@ -4,6 +4,7 @@
  */
 package paquete02;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -23,18 +24,30 @@ public class Ejercicio01 {
         Scanner entrada = new Scanner(System.in);
 
         boolean bandera = true;
-        int valor;
+        int valor = 0;
 
         while (bandera) {
             try {
                 System.out.println("Ingrese valor 1 a operar: ");
                 valor = entrada.nextInt();
-                if(valor %2!=0 || valor < 0){
-                    throw new Exception("Número impar");
+                if(valor %2==0 && valor >= 0){
+                    bandera = false;
+                }
+                if (valor < 0) {
+                    throw new Exception("Error número negativo");
+                }
+                if (valor %2!= 0) {
+                    throw new Exception("Error número impar");
+                }
+            } 
+             catch (InputMismatchException e) {
+                System.out.printf("(InputMismatchException) Ocurrió una "
+                        + "excepción %s\n", e);
+            } catch (Exception e) {
+                System.out.printf("Ocurrió una excepción %s\n", e);
             }
         }
+
+        return valor;
     }
-        
-    return valor ;
-}
 }
