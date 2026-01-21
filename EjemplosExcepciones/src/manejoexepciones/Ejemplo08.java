@@ -26,7 +26,8 @@ public class Ejemplo08 {
             System.out.printf("Resultado %.2f", resultado2);
         }
         catch(Exception e){
-            
+            //El Exception se usa cuando no se pone o no se encuentra el error, tomando
+            //todos los errores posibles para dar el mensaje, se recomienda ponerlo al final
             System.out.printf(" Lo sentimos hay un error de tipo %s\n", e);
         
         }
